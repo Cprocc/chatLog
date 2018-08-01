@@ -36,23 +36,22 @@ class wordcloud():
         plt.close()
 
     def PL_wordcloud(self):
-        word_dict = {'JAVA': ['java', 'jawa'], 'C++': ['c++', 'c艹'], 'C': ['c', 'c语言'],
-                     'PHP': ['php'], 'Python': ['py', 'python'], 'C#': ['c#']}
+        word_dict = {'吴培森': ['阿毛','吴培森','老五'], '赵新诚': ['老赵','赵新诚','老六'], '李侨': ['李侨','儿子','老大'],
+                     '李茂': ['茂哥','李茂','老二'], '柯泽冉': ['小三', '三儿','柯泽冉'], '祝博': ['老四','祝博']}
         self.draw_wordcloud(self.word_fre(word_dict), sys._getframe().f_code.co_name)
 
-    def all_wordcloud(self, word_len=0):
+    def all_wordcloud(self, word_len=3):
         word_dict = {}
-        stop_word = ['图片', '表情', '说']
+        stop_word = ['图片', '表情', '说','的','了','O']
         for doc in self.post.find({}):
             if len(doc['word']) > word_len and doc['word'] not in stop_word:
                 word_dict[doc['word']] = doc['item']
         self.draw_wordcloud(word_dict, sys._getframe().f_code.co_name + str(word_len))
 
     def company_wordcloud(self):
-        word_dict = {'Microsoft': ['微软', '巨硬', 'ms', 'microsoft'], 'Tencent': ['腾讯', 'tencent', '鹅厂'],
-                     '360': ['360', '安全卫士', '奇虎'], 'Netease': ['netease', '网易', '猪场'],
-                     'JD': ['jd', '京东', '某东', '狗东'], 'Taobao': ['淘宝', '天猫', 'taobao'],
-                     'BaiDu': ['百度', '某度', 'baidu'], 'ZhiHu': ['zhihu', '知乎', '你乎', '某乎']}
+        word_dict = {'华中科技大学': ['华科','华工'], '华中农业大学': ['华农','我农','皇家种地高中'], '大连理工大学': ['大连理工','大工'],
+                      '武汉大学': ['武汉大学', '武大'],
+                     '华中师范大学':['华中师范大学','华师'],'中南财经政法大学':['财大','中南财大','中南财经政法大学']}
 
         self.draw_wordcloud(self.word_fre(word_dict), sys._getframe().f_code.co_name)
 

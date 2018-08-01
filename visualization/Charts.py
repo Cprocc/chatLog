@@ -38,12 +38,12 @@ class charts():
         f, ax = plt.subplots(figsize=(18.5, 9))
 
         sns.set_color_codes("pastel")
-        sns.barplot(x=speak_list, y=name_list,
+        sns.barplot(x=speak_list, y=ID_list,
                     label="发言次数", color="b")
 
         # Plot the crashes where alcohol was involved
         sns.set_color_codes("muted")
-        sns.barplot(x=photo_num, y=name_list,
+        sns.barplot(x=photo_num, y=ID_list,
                     label="发送图片数", color="b")
 
         # Add a legend and informative axis label
